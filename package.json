@@ -5,5 +5,8 @@
     "node": "10.5.0",
     "npm": "6.9.0",
     "yarn": "1.13.0"
+  },
+  "scripts": {
+    "start": "cd server && yarn && cd .. && node server/bin/www"
   }
 }

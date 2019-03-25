@@ -7,6 +7,7 @@
     "yarn": "1.13.0"
   },
   "scripts": {
-    "start": "cd server && yarn && cd .. && node server/bin/www"
+    "start": "cd server && yarn && cd .. && node server/bin/www",
+    "heroku-postbuild": "cd client && yarn && yarn build && cd .."
   }
 }

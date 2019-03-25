@@ -1,9 +1,9 @@
 {
   "name": "jwt-signup",
   "version": "1.0.0",
-  "scripts": {
-    "dev": "NODE_ENV=development PORT=4000 nodemon ./be/bin/www",
-    "start": "cd fe && yarn start",
-    "pr": "cd fe && yarn && yarn build && cd ../be && yarn && cd .. && NODE_ENV=production nodemon ./be/bin/www"
+  "engines": {
+    "node": "10.5.0",
+    "npm": "6.9.0",
+    "yarn": "1.13.0"
   }
 }

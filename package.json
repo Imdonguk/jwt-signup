@@ -8,6 +8,9 @@
   },
   "scripts": {
     "start": "cd server && yarn && cd .. && node server/bin/www",
-    "heroku-postbuild": "cd client && yarn && yarn build && cd .."
+    "heroku-postbuild": "cd client && yarn && yarn build && cd ..",
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn start",
+    "init": "cd client && yarn && yarn build && cd ../server && yarn"
   }
 }

@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "cd server && yarn && cd .. && node server/bin/www",
+    "heroku-prebuild": "npm install --only=dev",
     "heroku-postbuild": "cd client && yarn && yarn build && cd ..",
     "client": "cd client && yarn start",
     "server": "cd server && yarn start",

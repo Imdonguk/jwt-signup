@@ -11,7 +11,7 @@
     "heroku-prebuild": "npm install --only=dev",
     "heroku-postbuild": "cd client && yarn && yarn build && cd ..",
     "client": "cd client && yarn start",
-    "server": "cd server && yarn start",
+    "server": "cd server && nodemon ./bin/www",
     "init": "cd client && yarn && yarn build && cd ../server && yarn"
   }
 }

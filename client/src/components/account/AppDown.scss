@@ -1,0 +1,23 @@
+.download {
+    p {
+        font-size: 14px;
+        text-align: center;
+        margin: 1rem 2rem;
+    }
+
+    .app {
+        padding: 1rem 0;
+        text-align: center;
+
+        a {
+            &:first-child {
+                margin-right: 1rem;
+            }
+
+            img {
+                height: 4rem;
+            }
+        }
+
+    }
+}

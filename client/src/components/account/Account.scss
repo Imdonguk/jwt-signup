@@ -1,0 +1,19 @@
+.container {
+    min-width: 93.5rem;
+    position: relative;
+    background: #fafafa;
+}
+
+.main {
+    height: 71.7rem;
+    padding-bottom: 4.4rem;
+    box-sizing: border-box;
+
+    &-contents {
+        max-width: 93.5rem;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+}

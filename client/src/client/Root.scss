@@ -1,0 +1,20 @@
+body {
+    font-size: 1.4rem;
+}
+
+span {
+    color: #999;
+}
+
+a {
+    text-decoration: none;
+    color: #003569;
+
+    &:visited {
+        color: inherit;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}

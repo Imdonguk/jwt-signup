@@ -4,14 +4,14 @@ import SigninForm from './SigninForm';
 import Footer from '../Footer';
 const Signin = () => {
     return (
-        <section>
+        <div className='container'>
             <main className='main'>
                 <div className='main-contents'>
                     <SigninForm />
                 </div>
             </main>
             <Footer />
-        </section>
+        </div>
     );
 };
 

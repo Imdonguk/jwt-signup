@@ -1,14 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const bodyParser = require('body-parser');
 require('dotenv').config();
-var app = express();
+const app = express();
 
 const DB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/woogie"
 
@@ -17,8 +17,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
@@ -51,5 +51,16 @@ mongoose.connect(DB_URI, { useNewUrlParser: true }, (err) => {
   if (err) return console.error('err ' + err);
   console.log('mongodb connected!');
 })
+
+//jwt
+const jwt = require('jsonwebtoken');
+const key = 'secret key';
+const token = jwt.sign({ id: 'woogie', userName: 'dungwookisgood' }, key);
+
+const decoded = jwt.verify(token, key);
+
+// console.log(token);
+// console.log(decoded);
+// console.log(new Date(decoded.iat * 1000))
 
 module.exports = app;

@@ -4,6 +4,7 @@ import { LetterIcon, AppDown, HiperLink } from '../account';
 
 const SignupForm = ({ history }) => {
 
+    const [account, setAccount] = useState({});
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch('/signup', {
@@ -21,15 +22,37 @@ const SignupForm = ({ history }) => {
             .catch(e => console.log(e));
     }
 
+    const handleChange = ({ target }) => {
+        setAccount({
+            ...account,
+            [target.name]: target.value
+        })
+    }
+
     return (
         <div className='content'>
             <div className='content-box'>
                 <LetterIcon />
                 <h2 className='content-form-title'>친구들의 사진과 동영상을 보려면 가입하세요.</h2>
                 <form className='content-form' onSubmit={handleSubmit}>
-                    <input className='content-form-input' name='name' type='text' placeholder='성명' />
-                    <input className='content-form-input' name='userName' type='text' placeholder='사용자 이름' />
-                    <input className='content-form-input' name='password' type='password' placeholder='비밀번호' />
+                    <input
+                        className='content-form-input'
+                        name='name' type='text'
+                        placeholder='성명'
+                        onChange={handleChange}
+                    />
+                    <input
+                        className='content-form-input'
+                        name='userName' type='text'
+                        placeholder='사용자 이름'
+                        onChange={handleChange}
+                    />
+                    <input
+                        className='content-form-input'
+                        name='password' type='password'
+                        placeholder='비밀번호'
+                        onChange={handleChange}
+                    />
                     <button className='content-form-button' type='submit'>가입</button>
                 </form>
                 <p className='content-form-policy'>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Signup } from 'components/signup'
 
-const SignupPage = () => {
+const SignupPage = ({ history }) => {
     return (
         <div>
             <div>
-                <Signup />
+                <Signup history={history} />
             </div>
         </div>
     );

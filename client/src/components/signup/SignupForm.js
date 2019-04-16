@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './SignupForm.scss'
 import { LetterIcon, AppDown, HiperLink } from '../account';
 
-const SignupForm = () => {
+const SignupForm = ({ history }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();

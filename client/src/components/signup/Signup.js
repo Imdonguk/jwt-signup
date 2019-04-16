@@ -3,13 +3,13 @@ import '../account/Account.scss';
 import SignupForm from './SignupForm'
 import Footer from '../Footer'
 
-const Signup = () => {
+const Signup = ({ history }) => {
 
     return (
         <div className='container'>
             <main className='main'>
                 <div className='main-contents'>
-                    <SignupForm />
+                    <SignupForm history={history} />
                 </div>
             </main>
             <Footer />

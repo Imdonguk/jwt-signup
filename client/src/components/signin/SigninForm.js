@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SigninForm.scss';
 import { LetterIcon, AppDown, HiperLink } from '../account';
-const SigninForm = () => {
+const SigninForm = ({ history }) => {
 
     const [account, setAccount] = useState({});
     const handleSubmit = (e) => {

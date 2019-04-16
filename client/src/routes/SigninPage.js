@@ -1,10 +1,10 @@
 import React from 'react';
 import { Signin } from 'components/signin'
 
-const SigninPage = () => {
+const SigninPage = ({ history }) => {
     return (
         <div>
-            <Signin />
+            <Signin history={history} />
         </div>
     );
 };

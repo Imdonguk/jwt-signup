@@ -5,20 +5,17 @@ import { LetterIcon, AppDown, HiperLink } from '../account';
 const SignupForm = ({ history }) => {
 
     const [account, setAccount] = useState({});
+    const [errorMsg, setErrorMsg] = useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
+        const { name, userName, password } = account;
         fetch('/signup', {
             method: 'post',
-            body: JSON.stringify({
-                "woogie": "post api test"
-            }),
-            headers: {
-                'content-type': 'application/json'
-            },
-            mode: 'cors'
+            body: JSON.stringify({ name, userName, password }),
+            headers: { 'content-type': 'application/json' }
         })
-            .then(res => res.json())
-            .then(json => console.log(json))
+            .then(r => r.json())
+            .then(r => r.success ? (history.push('/signin')) : (setErrorMsg(r.msg)))
             .catch(e => console.log(e));
     }
 
@@ -56,7 +53,10 @@ const SignupForm = ({ history }) => {
                     <button className='content-form-button' type='submit'>가입</button>
                 </form>
                 <p className='content-form-policy'>
-                    가입하면 Instagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다.
+                    {errorMsg ?
+                        <span className='content-error'>{errorMsg}</span> :
+                        '가입하면 Instagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다.'
+                    }
                 </p>
             </div>
             <div className='content-box'>

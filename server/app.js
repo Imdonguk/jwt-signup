@@ -52,15 +52,4 @@ mongoose.connect(DB_URI, { useNewUrlParser: true }, (err) => {
   console.log('mongodb connected!');
 })
 
-//jwt
-const jwt = require('jsonwebtoken');
-const key = 'secret key';
-const token = jwt.sign({ id: 'woogie', userName: 'dungwookisgood' }, key);
-
-const decoded = jwt.verify(token, key);
-
-// console.log(token);
-// console.log(decoded);
-// console.log(new Date(decoded.iat * 1000))
-
 module.exports = app;

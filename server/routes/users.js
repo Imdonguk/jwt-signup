@@ -1,10 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var user = require('../model/userSchema.js')
+const express = require('express');
+const router = express.Router();
+
 /* GET users listing. */
-router.get('/', async (req, res, next) => {
-  const accountsInfo = await user.find()
-  res.json(accountsInfo);
+router.get('/', (req, res, next) => {
+  res.send({ welcome: 'users' })
 });
 
 module.exports = router;

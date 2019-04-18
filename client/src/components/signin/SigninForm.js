@@ -6,6 +6,20 @@ const SigninForm = ({ history }) => {
     const [account, setAccount] = useState({});
     const handleSubmit = (e) => {
         e.preventDefault();
+        const { userName, password } = account;
+        fetch('/signin', {
+            method: 'post',
+            body: JSON.stringify({ userName, password }),
+            headers: { 'content-type': 'application/json' }
+        })
+            .then(r => r.json())
+            .then(r => {
+                if (!r.success) throw new Error(r.msg)
+                localStorage.setItem('token', r.token)
+                history.push('/')
+            })
+            .catch(e => console.log(e.message))
+    }
 
     const handleChange = ({ target }) => {
         setAccount({

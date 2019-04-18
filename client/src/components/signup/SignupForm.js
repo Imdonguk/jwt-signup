@@ -9,7 +9,7 @@ const SignupForm = ({ history }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const { name, userName, password } = account;
-        fetch('/signup', {
+        fetch('/account/signup', {
             method: 'post',
             body: JSON.stringify({ name, userName, password }),
             headers: { 'content-type': 'application/json' }
